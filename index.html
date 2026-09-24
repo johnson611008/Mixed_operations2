@@ -137,6 +137,52 @@ will-change:left,top,transform;
  .badgeBurst{width:150px;height:150px}.badgeIcon{width:104px;height:104px;font-size:54px}
 }
 
+
+/* ===== 第2關：正負森林・打地鼠 ===== */
+#moleChallenge{position:absolute;inset:0;z-index:105;display:none;place-items:center;background:rgba(2,19,27,.82);backdrop-filter:blur(3px)}
+#moleChallenge.show{display:grid}
+.moleCard{width:min(94vw,760px);padding:20px;border:3px solid #79c87b;border-radius:24px;background:linear-gradient(#244d3a,#102d2c);color:#fff;text-align:center;box-shadow:0 18px 50px #000a}
+.moleHead{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}
+.moleTag{padding:6px 13px;border-radius:999px;background:#8bcf65;color:#173217;font-weight:1000}
+.moleStats{display:flex;gap:12px;font-weight:900}.moleStats span{background:#10251f;padding:6px 10px;border-radius:10px}
+#moleQuestion{margin:13px 0 5px;font-size:clamp(22px,3vw,35px);font-weight:1000;color:#ffe184}
+#moleHint{min-height:24px;margin-bottom:8px;font-weight:800}
+#moleField{position:relative;width:100%;aspect-ratio:16/8.3;border:3px solid #14231d;border-radius:20px;overflow:hidden;background:linear-gradient(#78b6d4 0 35%,#4f8a48 36% 66%,#376534 67%);box-shadow:inset 0 0 30px #0005}
+#moleField:before{content:"";position:absolute;left:0;right:0;bottom:0;height:42%;background:linear-gradient(#6a4a2d,#422e20)}
+.hole{position:absolute;width:22%;height:31%;transform:translate(-50%,-50%);border:0;background:none;padding:0;cursor:pointer;overflow:visible}
+.hole:after{content:"";position:absolute;left:8%;right:8%;bottom:0;height:27%;border-radius:50%;background:#20170f;box-shadow:inset 0 6px 8px #0009,0 3px 0 #8a6541}
+.mole{position:absolute;left:18%;bottom:8%;width:64%;height:76%;transform:translateY(68%);transition:transform .23s ease;z-index:2}
+.hole.up .mole{transform:translateY(0)}
+.moleBody{position:absolute;left:11%;bottom:0;width:78%;height:75%;border-radius:50% 50% 40% 40%;background:linear-gradient(#9b6845,#66402d);border:3px solid #3b271e}
+.moleEar{position:absolute;top:12%;width:24%;aspect-ratio:1;border-radius:50%;background:#87583d;border:3px solid #3b271e}.moleEar.l{left:5%}.moleEar.r{right:5%}
+.moleEye{position:absolute;top:34%;width:9%;aspect-ratio:1;border-radius:50%;background:#17110e;z-index:3}.moleEye.l{left:33%}.moleEye.r{right:33%}
+.moleAnswer{position:absolute;left:50%;top:53%;transform:translate(-50%,-50%);z-index:4;min-width:48px;padding:4px 8px;border-radius:9px;background:#fff7d6;color:#17291d;border:2px solid #4d3527;font-size:clamp(15px,2vw,24px);font-weight:1000}
+.hole.hit .moleBody{background:#4b9b55}.hole.bad .moleBody{background:#b34b43}
+.hole:nth-child(1){left:18%;top:35%}.hole:nth-child(2){left:50%;top:31%}.hole:nth-child(3){left:82%;top:37%}.hole:nth-child(4){left:34%;top:72%}.hole:nth-child(5){left:68%;top:72%}
+#moleFeedback{min-height:30px;margin-top:9px;font-size:17px;font-weight:900}
+#moleLeave{margin-top:7px;border:0;border-radius:11px;padding:9px 16px;background:#dbe8df;color:#183127;font-weight:900;cursor:pointer}
+#badgeAward2{position:absolute;inset:0;z-index:135;display:none;place-items:center;background:rgba(0,11,23,.8);backdrop-filter:blur(4px)}
+#badgeAward2.show{display:grid}
+.badge2Icon{width:128px;height:128px;border-radius:50%;display:grid;place-items:center;margin:auto;background:linear-gradient(145deg,#9bd86b,#347d49);border:7px solid #e8ffc7;box-shadow:inset 0 0 0 5px #20552f,0 0 25px #8be15e;font-size:50px;font-weight:1000;color:#fff}
+#collectBadge2{border:0;border-radius:14px;background:linear-gradient(#b8e96d,#64a943);color:#173017;padding:13px 26px;font-size:18px;font-weight:1000;cursor:pointer}
+@media(max-width:700px){.moleCard{padding:12px}.hole{width:25%;height:34%}.moleStats{font-size:12px}.badge2Icon{width:104px;height:104px}}
+
+
+/* V9 第二關視覺修正：參考使用者提供的打地鼠樣式 */
+.mole{left:25%;bottom:5%;width:50%;height:62%;transform:translateY(72%)}
+.moleBody{left:18%;bottom:0;width:64%;height:64%;border-radius:50%;background:linear-gradient(#fff7e9,#d9c7b4);border:4px solid #765240;box-shadow:inset 0 -7px 0 #c4aa93}
+.moleEar{display:none}
+.moleEye{top:45%;width:9%;background:#34251f}.moleEye.l{left:37%}.moleEye.r{right:37%}
+.moleBody:before,.moleBody:after{content:"";position:absolute;top:48%;width:14%;height:8%;border-radius:50%;background:#ff8f9d}
+.moleBody:before{left:14%}.moleBody:after{right:14%}
+.moleAnswer{top:-30%;min-width:58px;padding:6px 10px;background:linear-gradient(#e7b15e,#c98a37);border:3px solid #71451f;color:#17232b;box-shadow:0 4px 0 #5d391d;font-size:clamp(16px,2vw,25px)}
+.moleBand{position:absolute;left:19%;top:26%;width:62%;height:15%;border-radius:10px 10px 3px 3px;z-index:4;background:#e34b4b;border:2px solid #6d332e}
+.hole:nth-child(2) .moleBand{background:#3f78d6}.hole:nth-child(3) .moleBand{background:#8b57cf}.hole:nth-child(4) .moleBand{background:#df4b78}.hole:nth-child(5) .moleBand{background:#e99338}
+.hammer{position:absolute;z-index:30;width:62px;height:76px;pointer-events:none;transform-origin:50% 100%;animation:hammerSmash .32s ease-out forwards}
+.hammerHead{position:absolute;left:2px;top:4px;width:48px;height:28px;border-radius:9px;background:linear-gradient(#d7a565,#8b552d);border:3px solid #5a351f;box-shadow:inset 0 5px 0 #efd09b}
+.hammerHandle{position:absolute;left:35px;top:27px;width:12px;height:50px;border-radius:7px;background:#71421f;border:2px solid #482713;transform:rotate(-18deg);transform-origin:top}
+@keyframes hammerSmash{0%{transform:translate(-15px,-42px) rotate(-55deg) scale(1.08)}55%{transform:translate(0,0) rotate(10deg) scale(1)}100%{transform:translate(0,0) rotate(5deg) scale(.96);opacity:.15}}
+
 </style>
 </head>
 <body>
@@ -229,7 +275,7 @@ will-change:left,top,transform;
  <div class="challengeCard">
    <span class="challengeTag">🏕️ 第 1 關</span>
    <h2>新手營地</h2>
-   <div class="challengeInfo">完成 5 題整數基礎練習，答對 4 題即可取得「啟程徽章」</div>
+   <div class="challengeInfo">每次隨機抽出 5 題整數基礎練習，答對 4 題即可取得「啟程徽章」</div>
    <div class="qProgress"><i id="qProgressFill"></i></div>
    <div id="questionText">準備開始！</div>
    <div class="answers" id="answers"></div>
@@ -248,6 +294,27 @@ will-change:left,top,transform;
    <h3>獲得「啟程徽章」</h3>
    <p>你完成了新手營地的挑戰，第 2 關「正負森林」即將解鎖！</p>
    <button id="collectBadge">收下徽章</button>
+ </div>
+</div>
+
+
+<div id="moleChallenge">
+ <div class="moleCard">
+  <div class="moleHead"><span class="moleTag">🌲 第 2 關・正負森林</span><div class="moleStats"><span id="moleScore">得分 0/10</span><span id="moleTime">時間 45</span></div></div>
+  <div id="moleQuestion">找出正確答案，敲下地鼠！</div>
+  <div id="moleHint">共 10 題，答對 8 題即可過關</div>
+  <div id="moleField"></div>
+  <div id="moleFeedback"></div>
+  <button id="moleLeave">返回地圖</button>
+ </div>
+</div>
+<div id="badgeAward2">
+ <div class="badgeAwardCard">
+  <div class="badge2Icon">＋<br>－</div>
+  <h2>正負森林突破！</h2>
+  <h3>獲得「正負徽章」</h3>
+  <p>你已經能辨認正負數的方向與大小，第 3 關「加法溪谷」解鎖！</p>
+  <button id="collectBadge2">收下徽章</button>
  </div>
 </div>
 
@@ -291,13 +358,40 @@ const progressFill=document.querySelector('#qProgressFill');
 let current=0, moving=false, timer=null;
 let qIndex=0, correctCount=0, answered=false, level1Passed=false;
 
-const level1Questions=[
+const level1QuestionPool=[
  {q:'下列哪一個數是正整數？',a:'5',opts:['-5','0','5','-1']},
+ {q:'下列哪一個數是正整數？',a:'8',opts:['-8','0','8','-3']},
  {q:'下列哪一個數是負整數？',a:'-7',opts:['7','0','-7','3']},
- {q:'在數線上，3 的左邊是哪一個數？',a:'2',opts:['4','5','2','6']},
+ {q:'下列哪一個數是負整數？',a:'-4',opts:['4','1','0','-4']},
+ {q:'在數線上，3 的左邊相鄰整數是哪一個？',a:'2',opts:['4','5','2','6']},
+ {q:'在數線上，-2 的右邊相鄰整數是哪一個？',a:'-1',opts:['-3','-1','1','0']},
  {q:'比較大小：-2　□　1',a:'<',opts:['>','<','=','無法比較']},
- {q:'0 是下列哪一種數？',a:'整數',opts:['不是數','整數','只算正數','只算負數']}
+ {q:'比較大小：4　□　-3',a:'>',opts:['>','<','=','無法比較']},
+ {q:'比較大小：-5　□　-2',a:'<',opts:['>','<','=','無法比較']},
+ {q:'0 是下列哪一種數？',a:'整數',opts:['不是數','整數','只算正數','只算負數']},
+ {q:'下列哪一組數全部都是整數？',a:'-3、0、5',opts:['-3、0、5','1.5、2、3','1/2、0、4','2.5、-1、3']},
+ {q:'下列哪個敘述正確？',a:'0不是正整數也不是負整數',opts:['0是正整數','0是負整數','0不是整數','0不是正整數也不是負整數']},
+ {q:'數線上，哪一個數在 0 的左邊？',a:'-6',opts:['6','3','-6','1']},
+ {q:'數線上，哪一個數在 -3 的右邊？',a:'1',opts:['-5','-4','-6','1']},
+ {q:'由小到大排列，哪一個正確？',a:'-4、-1、0、3',opts:['3、0、-1、-4','-4、-1、0、3','-1、-4、0、3','0、-1、-4、3']}
 ];
+let level1Questions=[];
+
+function shuffleArray(arr){
+ const copy=[...arr];
+ for(let i=copy.length-1;i>0;i--){
+   const j=Math.floor(Math.random()*(i+1));
+   [copy[i],copy[j]]=[copy[j],copy[i]];
+ }
+ return copy;
+}
+function prepareLevel1Questions(){
+ // 每次進入／重新挑戰都從 15 題題庫隨機抽 5 題，不重複。
+ level1Questions=shuffleArray(level1QuestionPool).slice(0,5).map(item=>({
+   ...item,
+   opts:shuffleArray(item.opts)
+ }));
+}
 
 function showToast(text,ms=0){
  clearTimeout(timer);toast.textContent=text;toast.classList.add('show');
@@ -329,6 +423,7 @@ async function travel(lv){
  setTimeout(startLevel1,650);
 }
 function startLevel1(){
+ prepareLevel1Questions();
  qIndex=0;correctCount=0;answered=false;
  challenge.classList.add('show');
  document.querySelector('#retryChallenge').style.display='none';
@@ -405,11 +500,20 @@ function flyBadgeToCollection(){
  setTimeout(()=>{fly.remove();unlockLevel2()},900);
 }
 
-buttons.forEach(b=>b.addEventListener('click',()=>{
+buttons.forEach(b=>b.addEventListener('click',async()=>{
  const lv=+b.dataset.level;
  if(lv===1 && current===0) travel(1);
  else if(lv===1 && level1Passed) showToast('✓ 第 1 關已完成，已取得「啟程徽章」',1000);
- else if(lv===2 && current===1) showToast('🌲 第 2 關已解鎖！下一階段再製作內容',1300);
+ else if(lv===2 && current===1 && !moving){
+   moving=true;hero.classList.add('walking');showToast('🚶 前往第 2 關「正負森林」');
+   const path=routes[2];
+   for(let i=0;i<path.length-1;i++) await segment(path[i],path[i+1]);
+   hero.classList.remove('walking','left');moving=false;
+   showToast('🌲 抵達「正負森林」！',650);
+   setTimeout(startMoleGame,600);
+ }
+ else if(lv===2 && level2Passed) showToast('✓ 第 2 關已完成，已取得「正負徽章」',1000);
+ else if(lv===3 && current===2) showToast('🏞️ 第 3 關已解鎖！下一階段再製作內容',1200);
  else showToast('🔒 請依序完成前一關',900);
 }));
 document.querySelector('#leaveChallenge').onclick=()=>challenge.classList.remove('show');
@@ -418,6 +522,121 @@ document.querySelector('#collectBadge').onclick=()=>{
  badgeAward.classList.remove('show');
  flyBadgeToCollection();
 };
+
+
+/* ===== Level 2: 正負森林・打地鼠 ===== */
+const moleChallenge=document.querySelector('#moleChallenge');
+const moleField=document.querySelector('#moleField');
+const moleQuestion=document.querySelector('#moleQuestion');
+const moleFeedback=document.querySelector('#moleFeedback');
+const moleScore=document.querySelector('#moleScore');
+const moleTime=document.querySelector('#moleTime');
+const badgeAward2=document.querySelector('#badgeAward2');
+let moleRound=0,moleCorrect=0,moleSeconds=45,moleTimer=null,moleBusy=false,level2Passed=false;
+let moleQuestions=[];
+
+function randInt(min,max){return Math.floor(Math.random()*(max-min+1))+min}
+function makeLevel2Question(){
+ const type=randInt(0,3);
+ let q,a;
+ if(type===0){
+   let n=randInt(1,12);
+   q=`${n} 的相反數是多少？`; a=-n;
+ }else if(type===1){
+   let n=-randInt(1,12);
+   q=`${n} 的相反數是多少？`; a=-n;
+ }else if(type===2){
+   // 比大小至少 3 個數、最多 4 個數，不再出兩數比較。
+   const count=randInt(3,4), nums=[];
+   while(nums.length<count){
+     const n=randInt(-12,12);
+     if(!nums.includes(n)) nums.push(n);
+   }
+   const askMax=Math.random()<0.5;
+   q=`在 ${nums.join('、')} 中，哪一個數${askMax?'最大':'最小'}？`;
+   a=askMax?Math.max(...nums):Math.min(...nums);
+ }else{
+   let n=randInt(1,12);
+   q=`數線上，0 的左邊 ${n} 格是哪個數？`; a=-n;
+ }
+ const set=new Set([a]);
+ while(set.size<5){
+   let d=a+randInt(-8,8);
+   if(d!==a) set.add(d);
+ }
+ return {q,a,opts:shuffleArray([...set])};
+}
+function prepareMoleQuestions(){moleQuestions=Array.from({length:10},makeLevel2Question)}
+function createMoles(opts){
+ moleField.innerHTML='';
+ opts.forEach((value,i)=>{
+  const hole=document.createElement('button');hole.type='button';hole.className='hole';
+  hole.innerHTML=`<span class="mole"><span class="moleBody"></span><span class="moleBand"></span><span class="moleEye l"></span><span class="moleEye r"></span><span class="moleAnswer">${value}</span></span>`;
+  hole.addEventListener('click',()=>hitMole(hole,value));
+  moleField.appendChild(hole);
+ });
+ setTimeout(()=>[...moleField.children].forEach((h,i)=>setTimeout(()=>h.classList.add('up'),i*75)),80);
+}
+function renderMoleRound(){
+ if(moleRound>=10){finishMoleGame();return}
+ moleBusy=false;
+ const item=moleQuestions[moleRound];
+ moleQuestion.textContent=`第 ${moleRound+1} 題｜${item.q}`;
+ moleScore.textContent=`得分 ${moleCorrect}/10`;
+ moleFeedback.textContent='敲下你認為正確的地鼠！';
+ createMoles(item.opts);
+}
+function showHammer(hole){
+ const hammer=document.createElement('span');
+ hammer.className='hammer';
+ hammer.innerHTML='<span class="hammerHead"></span><span class="hammerHandle"></span>';
+ hammer.style.left='48%';
+ hammer.style.top='4%';
+ hole.appendChild(hammer);
+ setTimeout(()=>hammer.remove(),360);
+}
+function hitMole(hole,value){
+ if(moleBusy)return;moleBusy=true;
+ showHammer(hole);
+ const item=moleQuestions[moleRound];
+ if(value===item.a){moleCorrect++;hole.classList.add('hit');moleFeedback.textContent='✓ 答對了！'}
+ else{hole.classList.add('bad');moleFeedback.textContent=`✦ 答錯了，正確答案是 ${item.a}`}
+ [...moleField.children].forEach(h=>h.disabled=true);
+ setTimeout(()=>{[...moleField.children].forEach(h=>h.classList.remove('up'));setTimeout(()=>{moleRound++;renderMoleRound()},260)},520);
+}
+function startMoleGame(){
+ prepareMoleQuestions();moleRound=0;moleCorrect=0;moleSeconds=45;moleBusy=false;
+ moleChallenge.classList.add('show');moleTime.textContent='時間 45';
+ clearInterval(moleTimer);
+ moleTimer=setInterval(()=>{moleSeconds--;moleTime.textContent=`時間 ${moleSeconds}`;if(moleSeconds<=0){clearInterval(moleTimer);finishMoleGame()}},1000);
+ renderMoleRound();
+}
+function finishMoleGame(){
+ clearInterval(moleTimer);moleBusy=true;moleField.innerHTML='';
+ moleQuestion.textContent=`挑戰完成！答對 ${moleCorrect} / 10 題`;
+ if(moleCorrect>=8){
+  moleFeedback.textContent='🏆 正負森林挑戰成功！';
+  setTimeout(()=>{moleChallenge.classList.remove('show');badgeAward2.classList.add('show')},650);
+ }else{
+  moleFeedback.innerHTML='還差一點！<button id="moleRetry" type="button" style="margin-left:8px;padding:8px 12px;border:0;border-radius:9px;font-weight:900;cursor:pointer">重新挑戰</button>';
+  document.querySelector('#moleRetry').onclick=startMoleGame;
+ }
+}
+function unlockLevel3(){
+ level2Passed=true;current=2;
+ buttons.forEach(b=>{
+  const n=+b.dataset.level;b.classList.remove('active');
+  if(n<=2)b.classList.add('completed');
+  if(n===3)b.classList.add('active');
+  b.classList.toggle('locked',n>3);
+  b.querySelector('.lock').textContent=n>3?'🔒':'';
+ });
+ document.querySelector('#medalCount').textContent='2/9';
+ const dots=document.querySelectorAll('.medalDots i');dots[0].classList.add('earned');dots[1].classList.add('earned');
+ showToast('🏅 正負徽章已收藏！第 3 關「加法溪谷」解鎖',1700);
+}
+document.querySelector('#moleLeave').onclick=()=>{clearInterval(moleTimer);moleChallenge.classList.remove('show')};
+document.querySelector('#collectBadge2').onclick=()=>{badgeAward2.classList.remove('show');unlockLevel3()};
 
 setHero(start);
 hero.style.display='block';
